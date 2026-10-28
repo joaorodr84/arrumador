@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arrumador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Arrumador</h1>
+    <p id="level-name"></p>
+    <div id="hud">
+      <span>Nível <b id="level-num"></b>/<b id="level-total"></b></span>
+      <span>Movimentos <b id="moves">0</b></span>
+    </div>
+    <canvas id="board" aria-label="Tabuleiro do jogo"></canvas>
+    <p id="message" role="status"></p>
+    <div id="controls">
+      <button id="undo">Desfazer (Z)</button>
+      <button id="restart">Reiniciar (R)</button>
+      <button id="prev">&larr; Anterior</button>
+      <button id="next">Próximo &rarr;</button>
+    </div>
+    <p class="help">Setas ou WASD para mover. Empurre todas as caixas para os alvos.</p>
+  </main>
+  <script src="levels.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
