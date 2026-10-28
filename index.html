@@ -8,22 +8,64 @@
 </head>
 <body>
   <main>
-    <h1>Arrumador</h1>
-    <p id="level-name"></p>
+    <header>
+      <h1><span class="logo">&#9638;</span> Arrumador</h1>
+      <p id="level-name"></p>
+    </header>
+
     <div id="hud">
-      <span>Nível <b id="level-num"></b>/<b id="level-total"></b></span>
-      <span>Movimentos <b id="moves">0</b></span>
+      <div class="stat"><span>Nível</span><b><span id="level-num"></span>/<span id="level-total"></span></b></div>
+      <div class="stat"><span>Movimentos</span><b id="moves">0</b></div>
+      <div class="stat"><span>Recorde</span><b id="best">-</b></div>
     </div>
-    <canvas id="board" aria-label="Tabuleiro do jogo"></canvas>
-    <p id="message" role="status"></p>
+
+    <div id="stage">
+      <canvas id="board" aria-label="Tabuleiro do jogo"></canvas>
+      <div id="win" class="overlay hidden">
+        <div class="card">
+          <h2 id="win-title">Nível completo!</h2>
+          <p id="win-text"></p>
+          <div class="row">
+            <button id="win-retry">Repetir</button>
+            <button id="win-next" class="primary">Próximo &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="controls">
-      <button id="undo">Desfazer (Z)</button>
-      <button id="restart">Reiniciar (R)</button>
-      <button id="prev">&larr; Anterior</button>
-      <button id="next">Próximo &rarr;</button>
+      <button id="undo" title="Z">&#8630; Desfazer</button>
+      <button id="restart" title="R">&#8635; Reiniciar</button>
+      <button id="prev">&larr;</button>
+      <button id="levels">Níveis</button>
+      <button id="next">&rarr;</button>
+      <button id="rules">Regras</button>
     </div>
-    <p class="help">Setas ou WASD para mover. Empurre todas as caixas para os alvos.</p>
+    <p class="help">Setas / WASD para mover &middot; Z desfaz &middot; R reinicia</p>
   </main>
+
+  <div id="rules-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+    <div class="card wide">
+      <div class="row between">
+        <h2 id="rules-title">Como jogar</h2>
+        <div class="tabs">
+          <button id="lang-pt" class="tab active">PT</button>
+          <button id="lang-en" class="tab">EN</button>
+        </div>
+      </div>
+      <ol id="rules-list"></ol>
+      <div class="row end"><button class="primary" data-close>Entendi</button></div>
+    </div>
+  </div>
+
+  <div id="levels-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Níveis">
+    <div class="card wide">
+      <h2>Níveis</h2>
+      <div id="level-grid"></div>
+      <div class="row end"><button data-close>Fechar</button></div>
+    </div>
+  </div>
+
   <script src="levels.js"></script>
   <script src="game.js"></script>
 </body>
